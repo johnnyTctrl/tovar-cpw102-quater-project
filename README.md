@@ -1,25 +1,38 @@
-# [Project name]
+# [Workout Tracker App]
 
 ## Project description
 
-Describe what your project does and who it helps.
+The Workout Tracker App helps users record their 
+workouts and tracks their fitness progress. Users
+can enter exercises, sets, repetitions, and weight 
+lifted. The program will save workout information
+and allow users to view previous workouts.
 
 ## Author
 
-Add your name and, optionally, your GitHub username.
+Johnny Tovar
 
 ## Environment setup
 
-List the Python version and the commands to create and activate a virtual environment.
+Python 3.12 or newer.
+Create a virtual environment:
+python -m venv .venv
+Activate the virtual environment on Windows:
+.venv\Scripts\activate
 
 ## Dependencies
 
-Explain how to install any packages your project needs.
+The program will use the built-in Python csv
+and datetime libraries. No additional packages
+are required.
 
 ## Running the project
 
-Give the command to start the program and one example of how to use it.
+python main.py
+
+Example: Select Add Workout and enter an exercise,
+the number of sets, repetitions, and weight lifted.
 
 ## Running the tests
 
-Give the command to run the unit tests.
+python -m unittest discover 
