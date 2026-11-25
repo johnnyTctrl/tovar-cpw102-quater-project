@@ -22,7 +22,7 @@ flowchart TD
     G --> H[Display Workouts]
     H --> B
     C --> |Exit| I[End Program]
-    c -->|Invalid Option| B
+    C -->|Invalid Option| B
 ```
 
 ## Technical Details
