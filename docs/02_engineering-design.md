@@ -2,69 +2,128 @@
 
 
 ## Overview
-
-[Provide a system-level explanation of:
-
-- major components of your application and how they interact.
-- data flow at a high level
-
-A friend should be able to read this section and, at a glance, understand how the application works. ]
+The Workout Tracker App will allow users to 
+record and view their workouts through a 
+terminal-based menu. Workout information will 
+be saved to a CSV file for future use.
 
 ## System Diagrams
 
-[This document must include one or more of the following:
-
-- block diagram of your proposed functions and modules, including external libraries
-- flowchart of logic for critical flows
-- mockups of any program-driven user interfaces, if applicable]
+```mermaid
+flowchart TD
+    A[Start Program] --> B[Display Menu]
+    B --> C{Select Option}
+    C --> |Add Workout| D[Enter Workout Details]
+    D --> E{Valid Input?}
+    E --> |NO| D
+    E --> |yes| F[Save to CSV]
+    F --> B
+    C --> |View History| G[Read CSV File]
+    G --> H[Display Workouts]
+    H --> B
+    C --> |Exit| I[End Program]
+    C -->|Invalid Option| B
+```
 
 ## Technical Details
 
 
 ### Inputs
 
-[What information will you take from the user? How will you take it (terminal, UI, file, ext)? What data types will you need to store user-entered information? ]
+The user will enter information through
+the terminal using the input function.
 
+- Menu choice: string
+- Exercise name: string
+- Sets: interger
+- Repetitions: interger
+- Weight in pounds: float
+- Workout date: automatically generated string:
 #### Handling bad inputs
 
-[How will your app handle bad user inputs?] 
+The program will use try and except statements
+to handle invalid numbers. Sets and repetitons 
+must be greater than zero. Weight cannot be 
+negative. Exercise names cannot be empty.
 
-### Logic
+Invalid inputs will display an error message
+and allow the user to try again.
 
-[At a high level, describe the logic you will need to apply. What Python tools will you use to capture that logic? For loops, while loops, exceptions?] 
+### Logicing
 
+A while loop will keep the program running
+until the user chooses to exit.
+
+If, elif, and else statements will handle
+menu selections. A for loop will display saved workout records from the CSV file.
+
+If no workout file exists, the program will 
+display a message instead of crashing
 ### Functions
 
-[How will you break your flow of logic up into functions? Write some psuedo code for your `main()` function to show how your app will coordinate its duties.]
+- display_menu(): Displays menu options.
+- add_workout(): Collections and validates inputs.
+- save_workout(): Saves workout data to CSV.
+- view_workout(): Displays saved workouts.
+- main(): Controls the program
 
 ``` python
 def main():
-    """
-    function calls go below here
-    """
-    pass
+    while true:
+        display_menu()
+        choice = input('Select an option: ")
+
+        if choice == "1":
+            workout = add_workout()
+            save_workout(workout)
+        elif choice == "2":
+            view_workouts()
+        elif choice =="3":
+            break
+        else:
+            print("Invalid option")
 
 main()
 ```
 
 ### Libraries
 
-[How can you leverage external libraries to:
+- csv: Saves and reads workout records.
+- datetime: Automatically records workout dates.
+- unittest: Tests are program functionality.
 
-- take advantage of functionality already written and tested by others?
-- improve the performance, user experience, or features in your application?
-
-All apps should leverage libraries. ]
+These libraries are included with Python.
 
 ### Output
 
-[What exactly will you output to the user? Options could be:
+The program will display a menu, cofirmation
+messages, error messages, and workout history.
 
-- printing a report to the terminal at the end of a program
-- repeatedly giving users updates on an iterative process
-- creating a file based on user-entered data
+Example output:
 
-If applicable, show an example output below:]
+'''text
+Welcome to Workout Tracker!
+
+1. Add Workout
+2. 2. View Workout History
+3. Exit
+
+Select an option 1 
+
+Exercise: Bench Press
+Sets: 3
+Repetitions: 10
+Weight (1Lbs): 135
+
+Workout saved successfully!
+
+## Testing Plan
+-Verify valid workouts are saved correctly.
+-Verify negative weights are rejected.
+-Verify invalid menu options are handled.
+-Verify empty exercise names are rejected.
+-Verify workout history remains available
+after restarting the program.
 
 ```
 
