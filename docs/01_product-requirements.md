@@ -3,19 +3,27 @@
 
 ## Problem
 
-[Who has the problem? What is difficult for them today? Alternatively, what need do you see this fulfilling in which user group?]
+People who exercise regularly may have difficuty
+remembering their previous workouts, weight,
+sets, and repetitions.
 
 ## Desired outcome
 
-[What should be better or more interesting for users when this is done?]
+Users will be able to record their workouts,
+view their workout history, and track their
+fitness progress over time 
 
 ## Scope
 
-[Which users, use cases, and features will this app cover?]
+The application will be Pyton terminal-based
+workout tracker for individual users.
 
 ## Out of Scope
 
-[What features is this app specifically avoiding?]
+- Online accounts
+- Nutrition and calorie tracking
+- Mobile applications
+- Personalized workout reccommendations
 
 
 ## Requirements
@@ -23,12 +31,33 @@
 
 ### The product must
 
-- 
+- Allow users to enter an exercise name.
+- Record sets, repetitions, and weight lifted.
+- Automatically record the workout date.
+- Save workout information to a CSV file.
+- Display previously saved workouts.
+- Reject invalid user inputs. 
 
 ### The product should
 
-- 
+- Provide an easy-to-use menu.
+- Allow users to record multiple exercises
+- Display clear error messgages
 
 ### The product could
 
-- 
+- Search workout history by exercise name.
+- Display personal weightlifting records.
+
+### Assumptions and constraints 
+- The application will use python 3.12 or newer.
+- Workout information will be stored locally.
+- Weight will be measured in pounds.
+- The application will work without internet.
+- Only one user will use the application at a time.
+
+### Non-functional requirments
+- The menu must be easy to understand
+- Saved workouts must remain available after
+  closing and reopening the program
+- Invalid inputs must not crash the program 
