@@ -9,7 +9,7 @@ be saved to a CSV file for future use.
 
 ## System Diagrams
 
-'''mermaid
+```mermaid
 flowchart TD
     A[Start Program] --> B[Display Menu]
     B --> C{Select Option}
@@ -23,7 +23,7 @@ flowchart TD
     H --> B
     C --> |Exit| I[End Program]
     c -->|Invalid Option| B
-'''
+```
 
 ## Technical Details
 
